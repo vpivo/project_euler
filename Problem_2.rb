@@ -5,6 +5,11 @@
 # 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
 
 # By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
+# what is the fib sequence?
+#http://en.wikipedia.org/wiki/Fibonacci_number
+#assigning variables on same line? 
+#inject again?
+#draw the tree and explain return
 
 def fibonacci(n)
 	fibs = []
