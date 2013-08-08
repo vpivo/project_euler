@@ -5,4 +5,20 @@
 #What is a prime factor? 
 #http://en.wikipedia.org/wiki/Prime_factor
 
+#what is a prime number?
+#google this yourself
+
 #Look at fib wiki and this wiki? Is there a pattern? Maybe a formula? 
+
+#Attempt 1 
+#brute force
+
+def find_factors(n)
+n = 1
+n2 = 3
+
+
+
+end
+
+	find_factors(13195)
