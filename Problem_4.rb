@@ -33,4 +33,5 @@ end
 
 #test it 
 
-puts is_palindrome(9009)
+puts is_palindrome(9009) == true
+puts is_palindrome(1345) == false
