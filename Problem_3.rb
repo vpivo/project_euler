@@ -1,27 +1,23 @@
-# The prime factors of 13195 are 5, 7, 13 and 29.
+#we know its working with small numbers but it takes forever to find prime factors of large numbers, what can we cut out of this code? 
 
-# What is the largest prime factor of the number 600851475143 ?
+#lets hold primes we've already found 
 
-#What is a prime factor? 
-#http://en.wikipedia.org/wiki/Prime_factor
+#that still takes forever let's look at finding prime factors again
 
-#what is a prime number?
-#google this yourself
-
-#Look at fib wiki and this wiki? Is there a pattern? Maybe a formula? 
-
-#Attempt 1 
-#brute force
+#it looks like a prime can be no larger than the square root of a number, let's give that a try. 
 
 def find_prime_factors(n)
 	return n if is_prime?(n) #if a number is prime that's it
 	solution = []
-	unless solution.inject(:*) == n
-		2.upto(n) do |i|
-	 	if n % i == 0 && is_prime?(i)
-	 		solution << i 
-	 	end
-	 end
+	known_primes = [] #lets hold the prime we find
+	unless solution.inject(:*) == n 
+		2.upto(Math.sqrt(n)) do |i|
+			if 	n % i == 0 && known_primes.include?(i)
+				solution << i 
+			elsif n % i == 0 && is_prime?(i)
+				solution << i 
+			end
+		end
 	end
 	solution
 end
@@ -36,17 +32,9 @@ def is_prime?(n)
 	true
 end
 
-puts find_prime_factors(13195)
-# puts is_prime?(3) == true
-# puts is_prime?(2) == true
-# puts is_prime?(10) == false
-# puts is_prime?(30) == false
-# puts is_prime?(109) == true
-# puts is_prime?(131) == true
-# puts is_prime?(223) == true
-# puts is_prime?(311) == true
-# puts is_prime?(108) == false
-# puts is_prime?(210) == false
-# puts is_prime?(215) == false
-# puts is_prime?(977) == true
-# puts is_prime?(244) == false
+
+#puts find_prime_factors(13195) #check changes with smaller number first
+puts find_prime_factors(600851475143)
+
+#to consider
+#we can still cut from this. Where else can we avoid computations? 
