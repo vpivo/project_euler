@@ -1,29 +1,14 @@
-=begin
-first, look at how I'm making a comment!
-
-A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
-
-Find the largest palindrome made from the product of two 3-digit numbers.
-
-Lets start by taking a look at what a palindromic number is. 
-http://en.wikipedia.org/wiki/Palindromic_number
-
-We want to find a number that:
-is the same forward and reversed
-is the product of two numbers 
-since we want the largest number possible it seems like it makes sense to start at 999 and work our way down 
-
-#we are going to start making smaller methods. The general rule is that 
-  if you have to use *and* to describe what a method does, you should break it in multiple methods. 
-=end
-
-
-
+#now we are going to defind a method that starts at 999 and checks for palindromes using downto
 #http://www.ruby-doc.org/core-2.0/Integer.html#method-i-downto
 
-
-
-#define a method to check if it's a palindrome
+def largest_product 
+	999.downto(100).each do |a|
+		999.downto(100).each do |b|
+	c = a * b
+	return c if is_palindrome(c) 
+		end
+	end
+end
 
 def is_palindrome(number)
 	#why are we converting an interger to a string here?
@@ -31,7 +16,7 @@ def is_palindrome(number)
 	number.to_s == number.to_s.reverse
 end
 
-#test it 
+puts largest_product
 
-puts is_palindrome(9009) == true
-puts is_palindrome(1345) == false
+# we get an answer, but it's not right. 580085 is a palindrome, 
+# and it's the closest one to a * b
