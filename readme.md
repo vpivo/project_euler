@@ -1,7 +1,6 @@
 ##Comments
-Comments are teacing notes for myself. 
+Comments are notes on how to solve the problem. What to search, links explaining pieces of what we need to know to solve the problem.  
 
 ##Refactorings 
 
-After every solution I will refactor the code and commit to show solution steps. 
-
+Commits start with problem descriptions, with notes explaining how to solve it. Then a sloppy/brute force solution. Then refactorings. 
