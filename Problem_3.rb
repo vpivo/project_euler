@@ -11,7 +11,7 @@ def find_prime_factors(n)
 	solution = []
 	known_primes = [] #lets hold the prime we find
 	unless solution.inject(:*) == n 
-		2.upto(Math.sqrt(n)) do |i|
+		2.upto(Math.sqrt(n).ceil) do |i|
 			if 	n % i == 0 && known_primes.include?(i)
 				solution << i 
 			elsif n % i == 0 && is_prime?(i)
@@ -34,7 +34,7 @@ end
 
 
 #puts find_prime_factors(13195) #check changes with smaller number first
-puts find_prime_factors(600851475143)
+p find_prime_factors(600851475143)
 
 #to consider
 #we can still cut from this. Where else can we avoid computations? 
