@@ -4,3 +4,4 @@ Comments are notes on how to solve the problem. What to search, links explaining
 ##Refactorings 
 
 Commits start with problem descriptions, with notes explaining how to solve it. Then a sloppy/brute force solution. Then refactorings. 
+dabdsalkjdsakl

@@ -24,9 +24,15 @@ end
 
 #try starting with primes
 def is_prime?(n)
+	r = Random.new
 	return true if n == 2 
 	return false if n.even? || n <= 1 #less iterations, get rid of things we know to be false
-	3.upto(n - 1) do |i| #upto includes the last number, eveything is divisible by itself and one 
+	if n > 1000
+		3.upto(Math.sqrt(n)) do |i| 
+			return false if n %  r.rand(3..Math.sqrt(n)) == 0
+		end
+	end
+	3.upto(Math.sqrt(n)) do |i| 
 		return false if n % i == 0
 	end
 	true
@@ -34,7 +40,7 @@ end
 
 
 #puts find_prime_factors(13195) #check changes with smaller number first
-p find_prime_factors(600851475143)
+# p find_prime_factors(600851475143)
 
 #to consider
 #we can still cut from this. Where else can we avoid computations? 
