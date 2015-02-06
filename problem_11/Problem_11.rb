@@ -49,57 +49,38 @@ What is the greatest product of four adjacent numbers in the same direction (up,
   01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
 ]
 
+@largest = 0
+
 def up_down
-  largest = 0
-  n = 0
-  until @grid[n+60].nil?
-    product = @grid[n].to_i * @grid[n+20].to_i * @grid[n+40].to_i * @grid[n+60].to_i
-    p [@grid[n], @grid[n+20], @grid[n+40], @grid[n+60]]
-    largest = product if product > largest
-    n = n + 1
-  end
-  p largest
+  find_largest_in_direction(0, 20, 40, 60)
 end
 
 def right_diagonal
-  n = 0
-  largest = 0
-  until @grid[n+63].nil?
-    product = @grid[n].to_i * @grid[n+21].to_i * @grid[n+42].to_i * @grid[n+63].to_i
-      p [@grid[n], @grid[n+21], @grid[n+42], @grid[n+63]]
-    largest = product if product > largest
-    n = n + 1
-  end
-  p largest
+  find_largest_in_direction(0, 21, 42, 63)
 end
 
 def left_diagonal 
-  n = 3
-  largest = 0
-  until @grid[n+37].nil?
-    # [@grid[n], @grid[n+19], @grid[n+38],@grid[n+57]]
-
-    product = @grid[n].to_i * @grid[n+19].to_i * @grid[n+38].to_i * @grid[n+57].to_i
-    p [@grid[n], @grid[n+19], @grid[n+28],@grid[n+37]]
-    largest = product if product > largest
-    n = n + 1
-  end
-  p largest
+  find_largest_in_direction(3, 19, 38, 57)
 end
 
 def side_to_side
-  largest = 0
-  n = 0
-  until @grid[n+3].nil?
-    product = @grid[n].to_i * @grid[n+1].to_i * @grid[n+2].to_i * @grid[n+3].to_i
-    largest = product if product > largest
-    n = n + 1
-  end
-  p largest
+  find_largest_in_direction(0, 1, 2 ,3)
 end
 
+def find_largest_in_direction(cell_1, cell_2, cell_3, cell_4)
+  until @grid[cell_1+cell_4].nil?
+    product = @grid[cell_1].to_i * @grid[cell_1+cell_2].to_i * @grid[cell_1+cell_3].to_i * @grid[cell_1+cell_4].to_i
+    @largest = product if product > @largest
+    cell_1 = cell_1 + 1
+  end
+end
 
-# up_down
-# right_diagonal
-left_diagonal
-# side_to_side
+def print_largest
+  up_down
+  right_diagonal
+  left_diagonal
+  side_to_side
+  p @largest
+end
+
+print_largest
