@@ -24,11 +24,10 @@ end
 
 def generate_sequence(n)
   sequence = []
-  until n == 2
+  until n == 1
     if n.even?
       n = even(n) 
-    end
-    if n.odd?
+    else
       n = odd(n) 
     end
     sequence.push(n)
@@ -37,17 +36,16 @@ def generate_sequence(n)
 end
 
 def find_longest_sequence
-  longest_squence = 0
+  starting_number = 0
   length = 0
   999999.downto(500000).each do |n|
-    puts n
     len = generate_sequence(n)
     if len > length
       length = len
-      longest_squence = n
+      starting_number = n
     end
   end
-  p longest_squence
+  starting_number
 end
 
-find_longest_sequence
+p find_longest_sequence
